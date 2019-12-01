@@ -68,6 +68,9 @@ async function crawlProduct(product) {
 	const $ = cheerio.load(body);
 	product.name = $('#product-title h1').text();
 	product.pictureUrls = $('#media-selector').find('.main-img,.alt-img').map((idx, el) => 'https:' + el.attribs['href']).get();
+	if (!product.pictureUrls.length) {
+		product.pictureUrls = [$('#Zoomer').attr('href')];
+	}
 	product.categories = $('.breadcrumbs a span[itemprop=name]').map((idx, el) => $(el).text()).get();
 	product.variables = $('ul.variation-selector span').map((idx, el) => $(el).text()).get();
 	product.description = $('.descriptions__content.cw-tabs__content--left').children().not('.view-all').text();

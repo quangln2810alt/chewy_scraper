@@ -2,3 +2,5 @@
 data.sqlite
 node_modules
 config.json
+test.js
+.vscode
