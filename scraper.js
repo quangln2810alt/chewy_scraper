@@ -99,8 +99,8 @@ async function run() {
 			lastPage: false
 		};
 	}
-	if (process.env.PAGE) {
-		config.currentPage = process.env.PAGE;
+	if (process.env.MORPH_PAGE) {
+		config.currentPage = process.env.MORPH_PAGE;
 	}
 	do {
 		console.log(`page ${config.currentPage}`);
