@@ -96,6 +96,9 @@ async function run() {
 			lastPage: false
 		};
 	}
+	if (process.env.PAGE) {
+		config.currentPage = process.env.PAGE;
+	}
 	do {
 		console.log(`page ${config.currentPage}`);
 		config.lastPage = await crawlPage(config.currentPage++);
@@ -108,5 +111,5 @@ async function run() {
 	initDatabase();
 	console.log('running...');
 	await run();
-	console.log(done);
+	console.log('done');
 })();
